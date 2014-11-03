@@ -1,0 +1,73 @@
+
+<div class="spinner" ng-show="loading"></div> 
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Edit disk</h3>
+  </div>
+  <div class="panel-body">
+    <form name= "diskForm"ng-submit="editForm(diskForm.$valid)"  class="form-horizontal" role="form" method ="post" novalidate>
+      <div class="form-group" ng-class="{ 'has-error' : diskForm.name.$invalid && !diskForm.name.$pristine }">
+        <label class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="name" ng-model="disk.name" 
+          required>
+          <p ng-show="diskForm.name.$invalid && !diskForm.name.$pristine" class="help-block"> Name is required.</p>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{'has-error':diskForm.address.$invalid && !employeForm.address.$pristine}">
+        <label class="col-sm-2 control-label">Address</label>
+        <div class="col-sm-10"> 
+          <input type="text" class="form-control" name="address" ng-model="disk.address" required>
+          <p ng-show="diskForm.address.$invalid && !diskForm.address.$pristine" class="help-block"> Address is required.</p>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{'has-error':diskForm.designation.$invalid && !employeForm.designation.$pristine}">
+        <label  class="col-sm-2 control-label">Designation</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="designation" ng-model="disk.designation" required>
+          <p ng-show="diskForm.designation.$invalid && !diskForm.designation.$pristine" class="help-block"> Designation is required.</p>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : diskForm.email.$invalid && !diskForm.email.$pristine }">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" name="email" ng-model="disk.email" required>
+          <p ng-show="diskForm.email.$invalid && !diskForm.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">Phone</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="phone" ng-model="disk.phone" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">Roles</label>
+        <div class="col-sm-10">
+          <input type="checkbox"  id ="actAsManager" name ="actAsManager",
+          ng-model="disk.actAsManager"> (Act as Manger)
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="selectbasic">Select Manager</label>
+        <div class="col-md-4">
+          <select ng-model="disk.manager" class="form-control" ng-selected="disk.manager"
+          ng-options="manager as manager.name for manager in managers"></select>
+
+          
+        </div>
+      </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+
+      <a ng-href="#/disk-list" class="btn btn-primary">Cancle</a>
+      <button type="submit" class="btn btn-success">Save</button>
+
+    </div>
+  </div>
+</form>
+</div>
+</div>
+
+
